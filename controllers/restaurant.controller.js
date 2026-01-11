@@ -117,13 +117,39 @@ exports.getRestaurantById = async (req, res) => {
 
 //find restaurant by rating code starts here
 
-exports.getRestaurantsByRating = async (req, res) => {
-    const { ratingValue } = req.params;
+//find restaurant by rating code ends here
+
+//update restaurant by id code starts here
+
+
+exports.updateRestaurant = async (req, res) => {
+    const { id } = req.params;
     try {
-        const restaurants = await Restaurant.find({
-            rating:{ $gte: ratingValue }
-        });
-        res.status(200).send(restaurants);
+        const restaurantObj ={
+           name: req.body.name,
+           description: req.body.description,
+           category: req.body.category,
+           imgUrl: req.body.imgUrl,
+           location: req.body.location,
+           phone: req.body.phone,
+           rating: req
+
+        }
+        const restaurant = await Restaurant.findByIdAndUpdate(
+            id,
+            restaurantObj,
+            { new: true }
+        );
+        if (restaurant) {
+            res.status(200).send({
+                restaurant,
+                message: 'Restaurant rating updated successfully'
+            });
+        } else {
+            res.status(404).send({
+                message: 'Restaurant not found'
+            });
+        }
     } catch (error) {
         console.log('Error while fetching restaurants by rating', error.message);
         res.status(500).send({
@@ -132,4 +158,5 @@ exports.getRestaurantsByRating = async (req, res) => {
     }
 };
 
-//find restaurant by rating code ends here
+
+//update restaurant by id cod

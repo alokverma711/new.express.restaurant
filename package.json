@@ -10,9 +10,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "body-parser": "^2.2.1",
+    "body-parser": "^2.2.2",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "mongoose": "^9.1.1"
-  }
+    "mongoose": "^9.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alokverma711/new.express.restaurant.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/alokverma711/new.express.restaurant/issues"
+  },
+  "homepage": "https://github.com/alokverma711/new.express.restaurant#readme"
 }

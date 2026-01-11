@@ -7,4 +7,6 @@ module.exports = function(app) {
     app.get('/api/restaurant/categories/:categoryName', restaurantController.getRestaurantsByCategory);
     app.get('/api/restaurant/:id', restaurantController.getRestaurantById);
     app.get('/api/restaurant/rating/:ratingValue', restaurantController.getRestaurantsByRating);
+    app.put('/api/restaurant/:id', restaurantController.updateRestaurant);
+
 }
